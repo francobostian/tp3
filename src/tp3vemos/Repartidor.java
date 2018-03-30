@@ -6,7 +6,6 @@ import java.util.Observer;
 public class Repartidor implements Observer {
 
     private Mazo mazo;
-    private int valor = 48;
 
     public Repartidor(Mazo mazo) {
 	super();
@@ -41,28 +40,5 @@ public class Repartidor implements Observer {
     public void setMazo(Mazo mazo) {
 	this.mazo = mazo;
     }
-
-    public int getValor() {
-	return valor;
-    }
-
-    public void setValor(int valor) {
-	this.valor = valor;
-    }
-
-    // public void getPuntos(String nombre, int val) {
-    // System.out.println("termino el programa " + nombre + " tiene " + val);
-    //
-    // }
-    //
-    // public void getGanador(String nombre, int puntos) {
-    // int val = 0;
-    // String n = "";
-    // if (val < puntos) {
-    // val = puntos;
-    // n = nombre;
-    // }
-    // System.out.println("gano " + n + " con " + val + " puntos");
-    // }
 
 }

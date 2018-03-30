@@ -23,6 +23,12 @@ public class Principal {
 	j3.addObserver(r);
 	j4.addObserver(r);
 
+	ArrayList<Jugador> j = new ArrayList<>();
+	j.add(j1);
+	j.add(j2);
+	j.add(j3);
+	j.add(j4);
+
 	Thread t = new Thread(j1);
 	t.start();
 	Thread t1 = new Thread(j2);
@@ -31,12 +37,6 @@ public class Principal {
 	t2.start();
 	Thread t3 = new Thread(j4);
 	t3.start();
-
-	ArrayList<Jugador> j = new ArrayList<>();
-	j.add(j1);
-	j.add(j2);
-	j.add(j3);
-	j.add(j4);
 
 	try {
 	    t.join();
@@ -89,18 +89,8 @@ public class Principal {
 
 	    stmt.setString(1, nombre);
 	    stmt.setLong(2, puntos);
-
 	    stmt.executeUpdate();
-	    // Statement statement = miConexion.createStatement();
 
-	    // ResultSet miResultset = statement.executeQuery("INSERT INTO
-	    // ganadores (nombre, puntaje) VALUES (?, ?");
-	    // INSERT INTO ganadores (nombre, puntaje) VALUES ('Cardinal', 4006"
-	    // SELECT * FROM GANADORES
-	    // while (miResultset.next()) {
-	    // System.out.println(miResultset.getString("nombre") + " " +
-	    // miResultset.getString("puntaje"));
-	    // }
 	} catch (SQLException e1) {
 	    System.out.println("No hay conexion");
 	    e1.printStackTrace();

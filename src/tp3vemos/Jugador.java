@@ -63,8 +63,6 @@ public class Jugador extends Observable implements Runnable {
 
 	while (!repartidor.getMazo().getMazo().isEmpty()) {
 
-	    val = val + 0;
-
 	    setCarta(repartidor.getMazo().getCarta());
 	    this.val++;
 	    this.setChanged();
@@ -80,8 +78,6 @@ public class Jugador extends Observable implements Runnable {
 
 	}
 
-	// repartidor.getPuntos(nombre, val);
-	// repartidor.getGanador(nombre, val);
     }
 
     public String mostrarGanador() {
