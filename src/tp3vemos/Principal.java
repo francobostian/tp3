@@ -1,5 +1,9 @@
 package tp3vemos;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -40,7 +44,9 @@ public class Principal {
 	    t2.join();
 	    t3.join();
 	    resultados(j);
-	    System.out.println(ganador(j).mostrarGanador());
+	    Jugador ganador = ganador(j);
+	    System.out.println(ganador.mostrarGanador());
+	    cargarGanador(ganador.getNombre(), ganador.getVal());
 	} catch (InterruptedException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
@@ -71,9 +77,34 @@ public class Principal {
 	}
 	gana.setNombre(nombre);
 	gana.setVal(max);
-	// System.out.println("el ganador es " + nombre + " con " + max + "
-	// puntos");
+
 	return gana;
+    }
+
+    public static void cargarGanador(String nombre, int puntos) {
+	try {
+	    Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tp3", "root", "");
+	    PreparedStatement stmt = miConexion
+		    .prepareStatement("INSERT INTO ganadores(nombre, puntaje) VALUES (?, ?)");
+
+	    stmt.setString(1, nombre);
+	    stmt.setLong(2, puntos);
+
+	    stmt.executeUpdate();
+	    // Statement statement = miConexion.createStatement();
+
+	    // ResultSet miResultset = statement.executeQuery("INSERT INTO
+	    // ganadores (nombre, puntaje) VALUES (?, ?");
+	    // INSERT INTO ganadores (nombre, puntaje) VALUES ('Cardinal', 4006"
+	    // SELECT * FROM GANADORES
+	    // while (miResultset.next()) {
+	    // System.out.println(miResultset.getString("nombre") + " " +
+	    // miResultset.getString("puntaje"));
+	    // }
+	} catch (SQLException e1) {
+	    System.out.println("No hay conexion");
+	    e1.printStackTrace();
+	}
     }
 
 }
