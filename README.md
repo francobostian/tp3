@@ -1,0 +1,1 @@
+Elegí mysql porque es la base de datos con la que me siento más cómodo, además  es multiplataforma, es fácil encontrar ayuda online, fácil de aprender en líneas generales, es escalable, flexible y fácil de gestionar.
